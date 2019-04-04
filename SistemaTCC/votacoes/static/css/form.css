@@ -1,0 +1,27 @@
+*{margin: 0;padding: 0;}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Slabo', serif;    
+    font-size: 1.2em;
+    margin: .5em;
+    margin-top: 1em;
+}
+
+.form>fieldset{
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-bottom: .3em;
+}
+
+.form>fieldset>input{
+    height: 1.2em;
+    font-size: 1em;
+    max-width: 10em;
+    border-radius: .3em;
+}
+
