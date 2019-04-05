@@ -2,7 +2,7 @@
 {% block content %}
 <form action="{% url 'login' %}" method="POST">
     {% csrf_token %}
-    <input type="text" id="id_username" name="username" placeholder="email@mail.com" autofocus required>
+    <input type="text" id="id_username" name="username" placeholder="Nome de Usuário" autofocus required>
     <input type="password" id="id_password" name="password" placeholder="Senha" required>
     <input type="submit" value="Login">
 
