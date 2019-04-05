@@ -2,9 +2,11 @@
 body{
     margin: 0;
     padding: 0;
+    background-image:url("../img/body_auditorio.jpeg");
+    background-position: center;
     font-family:sans-serif;
-    background: #34495e;
 }
+
 .pai p{
     color: white;
     text-transform: uppercase;
@@ -66,4 +68,10 @@ body{
 }
 .pai input[type = "submit"]:hover{
     background: #2ecc71;
+}
+.aviso{
+    border-left: 3px red solid;
+    background-color: #022C56;
+    border-top-right-radius:5px;
+    border-bottom-right-radius: 5px;
 }
