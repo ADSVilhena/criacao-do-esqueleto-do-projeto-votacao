@@ -6,7 +6,11 @@
     <input id="id_email" name="email" type="email" placeholder="Email"required>
     <input id="id_senha" name="senha" type="password" placeholder="Nova senha"required>
     <input type="submit" value="Registrar">
+    {% if forms.errors %}
+        <script>alert('Erro ao ao Registrar')</script>
+        <p> Usuário Existente!</p>
+        {{forms.non_fields_errors}}
+    {% endif %}
 </form>
-<p class="aviso">{{aviso}}</p>
 <a href="{% url 'login' %}">Já é registrado? Login</a>
 {% endblock %}

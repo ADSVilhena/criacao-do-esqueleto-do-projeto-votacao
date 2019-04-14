@@ -9,6 +9,7 @@
     <input type="hidden" name="next" value="{{ next }}">
     {% if forms.errors %}
         <script>alert('Erro ao logar')</script>
+        
     {% endif %}
 </form>
 <a href="{% url 'registrar' %}">Não está registrado? Registrar-se</a>

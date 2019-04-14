@@ -9,11 +9,11 @@ class RegUsuarioForm(forms.Form):
     def valido(self):
         valido = True
 
-        if not super(RegUsuarioForm,self).valido:
+        if not super(RegUsuarioForm,self).is_valid():
             valido=False
         
         usuarioExistente=User.objects.filter(username=self.data['email']).exists()
-        if usuarioExistente:
+        if usuarioExistente:   
             valido=False
 
         return valido

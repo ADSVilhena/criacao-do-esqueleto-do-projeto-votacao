@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> VotAluno: {{nomeMenu}}</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/baseSite.css' %}">
+</head>
+<body>
+
+    <div class="header">
+      <h2 class="logo">VotAluno</h2>
+      <input type="checkbox" id="chk">
+      <label for="chk" class="show-menu-btn">
+        <i class="fas fa-ellipsis-h"></i>
+      </label>
+  
+      <ul class="menu">
+        <a href="#"><i class="fas fa-home"></i> Início</a>
+        <a href="#"><i class="fas fa-info-circle"></i> Sobre</a>
+        <a href="#"><i class="fas fa-vote-yea"></i> Votações</a>
+        <a href="#"><i class="fas fa-user-cog"></i> Configurações</a>
+        <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>  Logout</a>
+        <label for="chk" class="hide-menu-btn">
+          <i class="fas fa-times"></i>
+        </label>
+      </ul>
+    </div>
+    
+  
+  <div class="content">
+      {% block content %}
+      {% endblock %}
+  </div>
+</body>  
+</html>
