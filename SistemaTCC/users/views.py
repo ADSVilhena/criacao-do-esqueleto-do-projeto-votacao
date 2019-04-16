@@ -10,7 +10,7 @@ class registrarUsuarioView(View):
     
     def get(self,request):
         return render(request,self.template_name,{'nomeMenu':'Registrar'})
-    
+
     def post(self,request):
         form = RegUsuarioForm(request.POST)
 

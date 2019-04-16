@@ -48,24 +48,13 @@
     position: absolute;
     visibility: hidden;
     z-index: -1111;
-  }
-  
-  .content{
-    padding: 0 20px;
-  }
-  .content img{
-    width: 100%;
-    max-width: 700px;
-    margin: 20px 0;
-  }
-  .content p{
-    text-align: justify;
-  }
+  } 
   
   @media screen and (max-width:800px) {
     .show-menu-btn,.hide-menu-btn{
       display: block;
     }
+    
     .menu{
       position: fixed;
       width: 100%;

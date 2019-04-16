@@ -1,0 +1,41 @@
+.content{
+    padding: 0 20px;
+  }
+  .content img{
+    width: 100%;
+    max-width: 700px;
+    margin: 20px 0;
+  }
+  .content p{
+    text-align: justify;
+}
+h1{
+    text-align: center;
+    font-size: 30px;
+    padding: 20px 0; 
+}
+.flex-container {
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+}
+.flex-item a{
+    background: darkslategray;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 100%;
+    padding: 60px;
+    line-height: 150px;
+    text-align: center;
+    border-radius: 3px;
+}
+@media screen and (max-width:800px) {
+    
+}
+
