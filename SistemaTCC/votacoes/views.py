@@ -7,3 +7,6 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def index(request):
     return render(request,'index.html',{'nomeMenu':'Início'})
+@login_required
+def cadastroAluno(request): 
+    return render(request,'cadastros/cadAluno.html',{'nomeMenu':'Cadastrar Aluno'})

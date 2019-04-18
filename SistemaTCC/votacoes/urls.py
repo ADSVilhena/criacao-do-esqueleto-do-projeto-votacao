@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^logout/$',logout_then_login,{'login_url':'/login/'},name='logout'),
 
     path('',views.index,name='index'),
+    path('cadastrarAluno/',views.cadastroAluno,name='cadastroAluno'),
 ]

@@ -2,6 +2,8 @@ from django.db import models
 from django import forms
 # Create your models here.
 class Aluno(models.Model):
+    
+    imagemAluno = models.ImageField(upload_to='images/alunos')
 
     nomeAluno = models.CharField(
         max_length=255,    
@@ -33,4 +35,3 @@ class Aluno(models.Model):
     ) 
  
     objetos = models.Manager() 
-
