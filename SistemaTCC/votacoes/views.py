@@ -13,10 +13,13 @@ def listarAlunos(request):
     return render(request,'listar/listarAlunos.html',{'alunos':alunos})
 @login_required
 def emAndamento(request):
-    emAdamento = Votacao.objects.all()
-    print('aaaaaaaaaaaa', emAndamento)
-    return render(request,'votacoes/emAndamento.html',{'listaEmAndamento':emAndamento})
+    context = {}
+    votacoesEmAndamento = Votacao.objects.filter(concluida=False)
+    context['votacoesEmAndamento'] = votacoesEmAndamento
+    return render(request,'votacoes/emAndamento.html',context)
 @login_required
 def concluidas(request):
-    concluidas = Votacao.objects.filter(concluida=True)
-    return render(request,'votacoes/concluidas.html',{'listaConcluidas':concluidas})
+    context = {}
+    votacoesConcluidas = Votacao.objects.filter(concluida=True)
+    context['votacoesConcluidas'] = votacoesConcluidas
+    return render(request,'votacoes/concluidas.html',context)
