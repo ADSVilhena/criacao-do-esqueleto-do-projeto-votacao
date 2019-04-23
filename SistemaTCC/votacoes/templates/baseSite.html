@@ -20,18 +20,14 @@
         </label>
     
         <ul class="menu">
-          <a href="#"><i class="fas fa-home"></i> Início</a>
-          <a href="#"><i class="fas fa-info-circle"></i> Sobre</a>
-          <a href="#"><i class="fas fa-vote-yea"></i> Votações</a>
+          <a href="{% url 'index' %}"><i class="fas fa-home"></i> Início</a>
+          <a href="{% url 'emAndamento' %}"><i class="fas fa-vote-yea"></i> Votações</a>
           <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="far fa-address-book"></i> Alunos
+            <i class="far fa-address-book"></i> Alunos
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="menu-item" href="{% url 'cadastroAluno' %}">Cadastrar Aluno</a>
-            <a class="menu-item" href="#">Modificar Aluno</a>
-            <a class="menu-item" href="#">Meus Alunos</a>
+            <a class="menu-item" href="{% url 'listarAlunos' %}">Lista de Alunos</a>
           </div>
-          <a href="#"><i class="fas fa-user-cog"></i> Configurações</a>
           <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
           <label for="chk" class="hide-menu-btn">
             <i class="fas fa-times"></i>

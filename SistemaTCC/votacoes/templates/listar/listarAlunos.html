@@ -1,0 +1,28 @@
+{% extends 'baseSite.html' %}
+{% block content %}
+<div class="listaAlunos">
+    <h1>Lista de Alunos</h1>
+    <table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+    width="90%">
+        <thead>
+            <th class="th-sm">Nome</th>
+            <th class="th-sm">CPF</th>
+            <th class="th-sm">Ano</th>
+            <th class="th-sm">Turma</th>
+            <th class="th-sm">Curso</th>
+        </thead> 
+        <tbody>
+            {% for Aluno in alunos %}
+                <tr>
+                    <th>{{Aluno.nomeAluno}}</th>
+                    <th>{{Aluno.cpfAluno}}</th>
+                    <th>{{Aluno.serieAluno}}</th>
+                    <th>{{Aluno.salaAluno}}</th>
+                    <th>{{Aluno.cursoAluno}}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
