@@ -1,10 +1,11 @@
 {% extends 'baseSite.html' %}
 {% block content %}
-{% if listaEmAndamento %}
+{% if votacoesEmAndamento %}
     <h2>Votações em Andamento</h2>
     <ul>
-    {% for Votacao in listaEmAndamento %}
-        <li><a href="#">{{ Votacao.aluno.nomeAluno }}</a></li>
+    {% for Votacao in votacoesEmAndamento %}
+        <li><a href="#">{{ Votacao.aluno.cursoAluno }}</a></li>
+        <a href="#">teste</a>
     {% endfor %}
     </ul>
 {% else %}
