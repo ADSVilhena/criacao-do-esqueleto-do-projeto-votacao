@@ -4,7 +4,12 @@
     <h2>Votações em Andamento</h2>
     <ul>
     {% for Votacao in votacoesEmAndamento %}
+<<<<<<< HEAD
         <li><a href="#">{{ Votacao.aluno.nomeAluno }}</a></li>
+=======
+        <li><a href="#">{{ Votacao.aluno.cursoAluno }}</a></li>
+        <a href="#">teste</a>
+>>>>>>> 19a7fa79067b464cd2ef48ccde8cb27104ca3887
     {% endfor %}
     </ul>
     <a href="{% url 'concluidas' %}">Visualizar votações concluídas</a>
