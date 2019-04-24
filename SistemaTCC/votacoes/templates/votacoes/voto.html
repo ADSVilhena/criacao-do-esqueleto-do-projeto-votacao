@@ -1,0 +1,18 @@
+{% extends 'baseSite.html' %}
+{% block content %}
+    {% for Aluno in aluno %}
+        <div class="exibirAluno">
+            <div class="d-flex justify-content-center">
+                <div class="aluno-pic-holder rounded shadow-sm"><img class="rounded" src="{{Aluno.imagemAluno.url}}" alt=""></div>
+            </div>
+            <br>
+            <div>
+                <p><strong>Nome do Aluno: </strong> {{Aluno.nomeAluno}}</p>
+                <p><strong>CPF:</strong> {{Aluno.cpfAluno}}</p>
+                <p><strong>Curso: </strong>{{Aluno.cursoAluno}}</p>
+                <p><strong>Ano: </strong>{{Aluno.serieAluno}}º <strong>Turma: </strong>"{{Aluno.turmaAluno}}"</p>
+            </div>
+        </div>
+    {% endfor %}
+    <a href="{% url 'emAndamento' %}">Voltar</a>
+{% endblock %}

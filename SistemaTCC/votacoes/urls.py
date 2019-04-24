@@ -15,4 +15,5 @@ urlpatterns = [
     path('listarAlunos/',views.listarAlunos,name='listarAlunos'),
     path('emAndamento/',views.emAndamento,name='emAndamento'),
     path('concluidas/',views.concluidas,name='concluidas'),
+    path('voto/<str:cpfAluno>',views.voto,name='voto'),
 ]

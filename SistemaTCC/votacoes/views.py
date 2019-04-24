@@ -23,3 +23,7 @@ def concluidas(request):
     votacoesConcluidas = Votacao.objects.filter(concluida=True)
     context['votacoesConcluidas'] = votacoesConcluidas
     return render(request,'votacoes/concluidas.html',context)
+@login_required
+def voto(request,cpfAluno):
+    aluno = Aluno.objects.filter(cpfAluno=cpfAluno)
+    return render(request,'votacoes/voto.html',{'aluno':aluno})
