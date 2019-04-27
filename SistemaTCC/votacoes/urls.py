@@ -13,7 +13,10 @@ urlpatterns = [
 
     path('',views.index,name='index'),
     path('listarAlunos/',views.listarAlunos,name='listarAlunos'),
+    path('escolherVotacoes/',views.escolherVotacoes,name='escolherVotacoes'),
     path('emAndamento/',views.emAndamento,name='emAndamento'),
+    path('pausadas/',views.pausadas,name='pausadas'),
     path('concluidas/',views.concluidas,name='concluidas'),
+    path('exibirAluno/<str:cpfAluno>',views.exibirAluno,name='exibirAluno'),
     path('voto/<str:cpfAluno>',views.voto,name='voto'),
 ]

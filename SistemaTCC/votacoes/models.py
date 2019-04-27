@@ -31,12 +31,37 @@ class Aluno(models.Model):
         null=False,     
         blank=False,
     )
-class Voto(models.Model):
-    voto = models.IntegerField(default=0)
-    user = models.CharField(default="Vazio", max_length=255)
+    def __str__(self):
+        return self.nomeAluno
 
 class Votacao(models.Model):
     aluno = models.ForeignKey(Aluno,on_delete=models.CASCADE)
-    #voto = models.ForeignKey(Voto,on_delete=models.CASCADE)
     created_date = models.DateTimeField(default=now, editable=False)
-    concluida = models.BooleanField(default=False)    
+    emAndamento = 1
+    pausada = 2
+    finalizada = 3
+    escolhas =(
+        (1,'Em Andamento'),
+        (2,'Pausada'),
+        (3,'Finalizada')
+    )
+    estado = models.IntegerField(choices=escolhas, default=2)
+
+    def __str__(self):
+        return self.aluno.nomeAluno
+
+class Voto(models.Model):
+    sim = 1
+    nao = 2
+    abstencao = 3
+    escolhas =(
+        (1,'Sim'),
+        (2,'Não'),
+        (3,'Abstenção')
+    )
+    voto = models.IntegerField(choices=escolhas,default=3)
+    professor = models.ForeignKey(User,on_delete=models.CASCADE)
+    votacao = models.ForeignKey(Votacao,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return 'Professor: '+ self.professor.username

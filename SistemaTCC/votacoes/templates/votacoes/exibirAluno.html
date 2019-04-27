@@ -11,8 +11,17 @@
                 <p><strong>CPF:</strong> {{Aluno.cpfAluno}}</p>
                 <p><strong>Curso: </strong>{{Aluno.cursoAluno}}</p>
                 <p><strong>Ano: </strong>{{Aluno.serieAluno}}º <strong>Turma: </strong>"{{Aluno.turmaAluno}}"</p>
+                {% if template_name == emAndamento %}
+                <p><strong>Situação:</strong> Em Andamento</p>
+                {% else %}
+                <p><strong>Situação:</strong> Concluída</p>
+                {% endif %}
             </div>
         </div>
-    {% endfor %}
-    <a href="{% url 'emAndamento' %}">Voltar</a>
+        {% if template_name == 'emAndamento' %} 
+            <button class="bt_votar">Votar</button>
+            {% else %}
+                <button disabled class="bt_votar">Votar</button>
+        {% endif %}
+        {% endfor %}
 {% endblock %}

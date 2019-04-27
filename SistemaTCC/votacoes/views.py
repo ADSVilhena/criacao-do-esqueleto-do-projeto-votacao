@@ -14,20 +14,43 @@ def listarAlunos(request):
     return render(request,'listar/listarAlunos.html',{'alunos':alunos})
 
 @login_required
+def escolherVotacoes(request):
+    return render(request,'votacoes/escolherVotacoes.html')
+
+@login_required
 def emAndamento(request):
     context = {}
-    votacoesEmAndamento = Votacao.objects.filter(concluida=False)
+    votacoesEmAndamento = Votacao.objects.filter(estado=1)
     context['votacoesEmAndamento'] = votacoesEmAndamento
     return render(request,'votacoes/emAndamento.html',context)
+
+@login_required
+def pausadas(request):
+    context = {}
+    votacoesPausadas = Votacao.objects.filter(estado=2)
+    context['votacoesPausadas'] = votacoesPausadas
+    return render(request,'votacoes/pausadas.html',context)
     
 @login_required
 def concluidas(request):
     context = {}
-    votacoesConcluidas = Votacao.objects.filter(concluida=True)
+    votacoesConcluidas = Votacao.objects.filter(estado=3)
     context['votacoesConcluidas'] = votacoesConcluidas
     return render(request,'votacoes/concluidas.html',context)
-    
+
+@login_required
+def exibirAluno(request,cpfAluno):
+    aluno = Aluno.objects.filter(cpfAluno=cpfAluno)
+    votacao = Votacao.objects.filter(aluno=aluno[0])
+    context = {}
+    context['aluno'] = aluno
+    if votacao[0].estado == 1:
+        context['template_name'] = 'emAndamento'
+    else:
+        context['template_name'] = 'finalizada'
+    return render(request,'votacoes/exibirAluno.html',context)
+
 @login_required
 def voto(request,cpfAluno):
-    aluno = Aluno.objects.filter(cpfAluno=cpfAluno)
-    return render(request,'votacoes/voto.html',{'aluno':aluno})
+    professor = request.user.username
+    return render(request,'votacoes/voto.html')

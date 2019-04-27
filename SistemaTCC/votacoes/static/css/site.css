@@ -50,6 +50,17 @@ h1,h2{
     text-align: center;
     border-radius: 3px;
 }
+.titulo{
+    text-align: center;
+    font-size: 30px;
+    margin: 0%;
+}
+.bt_votar{
+    margin-top:10px;
+    max-width: 40%;
+    width: 100%
+    
+}
 @media screen and (max-width:800px) {
     .exibirAluno{
         flex-direction: column;

@@ -1,0 +1,6 @@
+{% extends 'baseSite.html' %}
+{% block content %}
+<a href="{% url 'emAndamento' %}">Em Andamento</a><br>
+<a href="{% url 'concluidas' %}">Finalizadas</a><br>
+<a href="{% url 'pausadas' %}">Pausadas</a>
+{% endblock %}
