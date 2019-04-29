@@ -18,7 +18,7 @@ class registrarUsuarioView(View):
             dadosForm = form.data
             novoUsuario = User.objects.create_user(dadosForm['nome'],dadosForm['email'],dadosForm['senha'])
             novoUsuario.save()
-            return redirect('login',{'nomeMenu':'Login'})
+            return redirect('login')
         else: return redirect('registrar',{'aviso': 'Usuário Existente'} )
         
         return render(request,self.template_name,{'nomeMenu':'Registrar'},{'form':form})

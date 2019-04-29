@@ -23,11 +23,15 @@
         </table>
     {% endfor %}
     </ul>
-    <a href="{% url 'concluidas' %}">Visualizar votações concluídas</a><br>
-    <a href="{% url 'pausadas' %}">Visualizar votações pausadas</a>
+    <div class="divLinkEscolhas">
+        <a href="{% url 'concluidas' %}"><i class="far fa-check-square"></i> Visualizar votações concluídas</a><br>
+        <a href="{% url 'pausadas' %}"><i class="far fa-pause-circle"></i> Visualizar votações pausadas</a>
+    </div>
 {% else %}
     <h2>Sem votações em andamento</h2>
-    <a href="{% url 'concluidas' %}">Visualizar votações concluídas</a><br>
-    <a href="{% url 'pausadas' %}">Visualizar votações pausadas</a>
+    <div class="divLinkEscolhas">
+        <a href="{% url 'concluidas' %}"><i class="far fa-check-square"></i> Visualizar votações concluídas</a><br>
+        <a href="{% url 'pausadas' %}"><i class="far fa-pause-circle"></i> Visualizar votações pausadas</a>
+    </div>
 {% endif %}
 {% endblock %}

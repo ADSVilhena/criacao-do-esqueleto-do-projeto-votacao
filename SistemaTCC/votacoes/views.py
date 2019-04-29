@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .models import Aluno, Votacao
+from .models import Aluno, Votacao, Voto
 # Create your views here.
 
 @login_required
@@ -52,5 +52,7 @@ def exibirAluno(request,cpfAluno):
 
 @login_required
 def voto(request,cpfAluno):
-    professor = request.user.username
-    return render(request,'votacoes/voto.html')
+    votacao = Votacao.objects.filter(aluno=Aluno.objects.filter(cpfAluno=cpfAluno))
+    escolhas = Voto.escolhas
+
+    return render(request,'votacoes/voto.html',{'escolhas':escolhas})
