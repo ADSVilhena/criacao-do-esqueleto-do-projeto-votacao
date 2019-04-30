@@ -18,10 +18,12 @@
                 {% endif %}
             </div>
         </div>
-        {% if template_name == 'emAndamento' %} 
-            <a href="{% url 'voto' Aluno.cpfAluno %}"></a>
-            {% else %}
-                <button disabled class="bt_votar">Votar</button>
-        {% endif %}
+        <div class="div-bt-votar">
+            {% if template_name == 'emAndamento' %} 
+                <button class="bt_votar">Votar</button>
+                {% else %}
+                    <button disabled class="bt_votar">Votar</button>
+            {% endif %}
+        </div>
     {% endfor %}
 {% endblock %}

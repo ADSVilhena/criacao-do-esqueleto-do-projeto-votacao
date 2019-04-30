@@ -55,17 +55,26 @@ h1,h2{
     font-size: 30px;
     margin: 0%;
 }
+.div-bt-votar{
+    display: flex;
+    justify-content: center;
+}
 .bt_votar{
     margin-top:10px;
     max-width: 40%;
-    width: 100%
-    
+    width: 100% 
 }
 .escolherLinkH2{
+    color: white;
     text-align: center;
     text-decoration: none;
     list-style: none;
 }
+.blockEscolhas{
+    margin: none;
+    background-color: gray;
+}
+
 @media screen and (max-width:800px) {
     .exibirAluno{
         flex-direction: column;
