@@ -2,11 +2,17 @@ from django.shortcuts import render
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .models import Aluno, Votacao, Voto
+from django.contrib.auth.models import User
+
 # Create your views here.
 
 @login_required
 def index(request):
-    return render(request,'index.html',{'nomeMenu':'Início'})
+    nomeUsuario = request.user.username
+    context = {}
+    context['nomeUsuario'] = nomeUsuario
+    context['nomeMenu'] = 'Início'
+    return render(request,'index.html',context)
 
 @login_required
 def listarAlunos(request):
