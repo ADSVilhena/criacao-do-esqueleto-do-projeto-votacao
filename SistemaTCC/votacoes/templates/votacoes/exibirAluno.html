@@ -1,29 +1,43 @@
 {% extends 'baseSite.html' %}
 {% block content %}
-    {% for Aluno in aluno %}
-        <div class="exibirAluno">
-            <div class="d-flex justify-content-center">
-                <div class="aluno-pic-holder rounded shadow-sm"><img class="rounded" src="{{Aluno.imagemAluno.url}}" alt=""></div>
-            </div>
-            <br>
-            <div>
-                <p><strong>Nome do Aluno: </strong> {{Aluno.nomeAluno}}</p>
-                <p><strong>CPF:</strong> {{Aluno.cpfAluno}}</p>
-                <p><strong>Curso: </strong>{{Aluno.cursoAluno}}</p>
-                <p><strong>Ano: </strong>{{Aluno.serieAluno}}º <strong>Turma: </strong>"{{Aluno.turmaAluno}}"</p>
-                {% if template_name == emAndamento %}
+    <div class="exibirAluno">
+        <div class="d-flex justify-content-center">
+            <div class="aluno-pic-holder rounded shadow-sm"><img class="rounded" src="{{aluno.imagemAluno.url}}" alt=""></div>
+        </div>
+        <br>
+        <div>
+            <p><strong>Nome do Aluno: </strong> {{aluno.nomeAluno}}</p>
+            <p><strong>CPF:</strong> {{aluno.cpfAluno}}</p>
+            <p><strong>Curso: </strong>{{aluno.turmaAluno.cursoTurma}}</p>
+            <p><strong>Ano: </strong>{{aluno.turmaAluno.anoTurma}} <strong>Turma: </strong>"{{aluno.turmaAluno.nomeTurma}}"</p>
+            {% if template_name == 'emAndamento' %}
                 <p><strong>Situação:</strong> Em Andamento</p>
                 {% else %}
-                <p><strong>Situação:</strong> Concluída</p>
-                {% endif %}
-            </div>
-        </div>
-        <div class="div-bt-votar">
-            {% if template_name == 'emAndamento' %} 
-                <button class="bt_votar">Votar</button>
-                {% else %}
-                    <button disabled class="bt_votar">Votar</button>
+                    <p><strong>Situação:</strong> Concluída</p>
             {% endif %}
         </div>
-    {% endfor %}
+    </div>
+    <br>
+    <div class="div-bt-votar">
+        {% if template_name == 'emAndamento' %} 
+            {% if not professor in votaram %}
+                <form method="POST">
+                    {% csrf_token %}
+                        {{ form.voto }}
+                        <select class="d-none" name="professor" required id="id_professor">
+                            <option value="{{professor.id}}" selected></option>
+                        </select>
+                        <select class="d-none" name="votacao" required id="id_votacao">
+                            <option value="{{votacao.id}}" selected></option>
+                        </select>
+                                
+                    <input type="submit" value='votar'>
+                </form> 
+                {% else %}
+                    <p>Você já votou!</p>
+            <br>
+            {% endif %}
+
+        {% endif %}
+    </div>
 {% endblock %}

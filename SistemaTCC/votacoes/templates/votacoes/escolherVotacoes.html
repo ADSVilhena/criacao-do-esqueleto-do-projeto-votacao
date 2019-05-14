@@ -1,8 +1,8 @@
 {% extends 'baseSite.html' %}
 {% block content %}
     <div class="blockEscolhas">
-        <a href="{% url 'emAndamento' %}"><h2 class="escolherLinkH2"><i class="far fa-play-circle"></i> Em Andamento</h2></a><br>
-        <a href="{% url 'concluidas' %}"><h2 class="escolherLinkH2"><i class="far fa-check-square"></i> Finalizadas</h2></a><br>
-        <a href="{% url 'pausadas' %}"><h2 class="escolherLinkH2"><i class="far fa-pause-circle"></i> Pausadas</h2></a>
+        <a class="escolherLinkH2" href="{% url 'emAndamento' %}"><h2><i class="far fa-play-circle"></i> Em Andamento</h2></a><br>
+        <a class="escolherLinkH2" href="{% url 'concluidas' %}"><h2><i class="far fa-check-square"></i> Finalizadas</h2></a><br>
+        <a class="escolherLinkH2" href="{% url 'pausadas' %}"><h2><i class="far fa-pause-circle"></i> Pausadas</h2></a>
     </div>
 {% endblock %}

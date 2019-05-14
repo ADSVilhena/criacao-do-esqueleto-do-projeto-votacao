@@ -18,5 +18,4 @@ urlpatterns = [
     path('pausadas/',views.pausadas,name='pausadas'),
     path('concluidas/',views.concluidas,name='concluidas'),
     path('exibirAluno/<str:cpfAluno>',views.exibirAluno,name='exibirAluno'),
-    path('voto/<str:cpfAluno>',views.voto,name='voto'),
 ]

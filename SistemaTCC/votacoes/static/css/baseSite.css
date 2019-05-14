@@ -3,6 +3,16 @@
     padding: 0;
     font-family: "montserrat",sans-serif;
   }
+main{
+  min-height: calc(100vh - 200px);
+  height: 100%;
+}
+
+footer{
+  max-height: 100px;
+  height: 100px;
+  background-color: #333 !important;
+}
   
 .header{
   height: 100px;
@@ -60,6 +70,7 @@
 .menu-item:hover{
   color: #007bff;
 }
+
 @media screen and (max-width:800px) {
   .show-menu-btn,.hide-menu-btn{
     display: block;

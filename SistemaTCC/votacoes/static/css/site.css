@@ -50,13 +50,14 @@ h1,h2{
     text-align: center;
     border-radius: 3px;
 }
+
 .titulo{
     text-align: center;
     font-size: 30px;
     margin: 0%;
 }
-.div-bt-votar{
-    display: flex;
+.div-bt-votar, .div-bt-votar form{
+    display: grid;
     justify-content: center;
 }
 .bt_votar{
@@ -67,12 +68,17 @@ h1,h2{
 .escolherLinkH2{
     color: white;
     text-align: center;
-    text-decoration: none;
     list-style: none;
 }
+.escolherLinkH2:hover{
+    text-decoration: none;
+    color: white;
+}
 .blockEscolhas{
-    margin: none;
     background-color: gray;
+    min-height: calc(100vh - 200px);
+    height: 100%;
+    padding-top: 3%;
 }
 
 @media screen and (max-width:800px) {

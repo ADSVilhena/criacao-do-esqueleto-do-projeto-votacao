@@ -3,7 +3,6 @@
 {% if votacoesEmAndamento %}
     <p class='titulo'>Votações em Andamento</p>
     <ul>
-    {% for Votacao in votacoesEmAndamento %}
         <table id="dtVerticalScrollExample" class="table table-responsive-sm table-striped table-bordered table-sm" cellspacing="0"
         width="90%">
             <thead>
@@ -11,17 +10,18 @@
                 <th> Data de Criação</th>
             </thead>
             <tbody>
-                <tr>
-                    <th>
-                        <li><a href="{% url 'exibirAluno' Votacao.aluno.cpfAluno %}">{{ Votacao.aluno.nomeAluno }}</a></li>
-                    </th>
-                    <th>
-                        <p>{{ Votacao.created_date }}</p>
-                    </th>
-                </tr>
+                {% for Votacao in votacoesEmAndamento %}
+                    <tr>
+                        <th>
+                            <li><a href="{% url 'exibirAluno' Votacao.aluno.cpfAluno %}">{{ Votacao.aluno.nomeAluno }}</a></li>
+                        </th>
+                        <th>
+                            <p>{{ Votacao.created_date }}</p>
+                        </th>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
-    {% endfor %}
     </ul>
     <div class="divLinkEscolhas">
         <a href="{% url 'concluidas' %}"><i class="far fa-check-square"></i> Visualizar votações concluídas</a><br>
