@@ -14,7 +14,7 @@ def index(request):
 
 @login_required
 def listarAlunos(request):
-    alunos = Aluno.objects.all()
+    alunos = Aluno.objects.all().order_by('nomeAluno')
     return render(request,'listar/listarAlunos.html',{'alunos':alunos})
 
 @login_required
@@ -46,23 +46,29 @@ def concluidas(request):
 def exibirAluno(request,cpfAluno):
     aluno = Aluno.objects.get(cpfAluno=cpfAluno)
     votacao = Votacao.objects.get(aluno=aluno)
+    votoSim = len(Voto.objects.filter(votacao=votacao,voto=Voto.VOTO_SIM))
+    votoNao = len(Voto.objects.filter(votacao=votacao,voto=Voto.VOTO_NAO))
+    votoAbs = len(Voto.objects.filter(votacao=votacao,voto=Voto.VOTO_ABSTENCAO))
     context = {}
     context['aluno'] = aluno
     context['votacao'] = votacao
     context['professor'] = request.user
     context['form'] = votoForm
+    context['votoSim'] = votoSim
+    context['votoNao'] = votoNao
+    context['votoAbs'] = votoAbs
 
     professoresVotaram = []
     votos = Voto.objects.filter(votacao = votacao)
     for v in votos:
         professoresVotaram.append(v.professor)
     context['votaram'] = professoresVotaram
-    
-
     if votacao.estado == 1:
         context['template_name'] = 'emAndamento'
-    else:
+    elif votacao.estado == 3:
         context['template_name'] = 'finalizada'
+    else:
+        context['template_name'] = 'pausada'
 
     if request.method == 'POST': 
         form = votoForm(request.POST)
@@ -73,4 +79,5 @@ def exibirAluno(request,cpfAluno):
             print(form.errors)
     else:
         form = votoForm()
+
     return render(request,'votacoes/exibirAluno.html',context)

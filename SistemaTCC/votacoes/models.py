@@ -57,15 +57,15 @@ class Votacao(models.Model):
 
 
 class Voto(models.Model):
-    sim = 1
-    nao = 2
-    abstencao = 3
+    VOTO_SIM = 1
+    VOTO_NAO = 2
+    VOTO_ABSTENCAO = 3
     escolhas =(
         (1,'Sim'),
         (2,'Não'),
         (3,'Abstenção')
     )
-    voto = models.IntegerField(choices=escolhas,default=3)
+    voto = models.IntegerField(choices=escolhas,default=VOTO_ABSTENCAO)
     professor = models.ForeignKey(User,on_delete=models.CASCADE)
     votacao = models.ForeignKey(Votacao,on_delete=models.CASCADE)
 

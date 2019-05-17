@@ -80,7 +80,9 @@ h1,h2{
     height: 100%;
     padding-top: 3%;
 }
-
+.votos-cont{
+    text-align: center;
+}
 @media screen and (max-width:800px) {
     .exibirAluno{
         flex-direction: column;

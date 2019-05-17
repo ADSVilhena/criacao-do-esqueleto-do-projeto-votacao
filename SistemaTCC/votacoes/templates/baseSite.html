@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="header">
-        <h2 class="logo">VotAluno</h2>
+      <a href="{% url 'index' %}"><h2 class="logo">VotAluno</h2></a>
         <input type="checkbox" id="chk">
         <label for="chk" class="show-menu-btn">
           <i class="fas fa-ellipsis-h"></i>
@@ -39,13 +39,10 @@
       {% endblock %}
     </main>
     <footer class="text-muted">
-      
       <div class="container">
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.3/getting-started/introduction/">getting started guide</a>.</p>
       </div>
     </footer>
 </body>  

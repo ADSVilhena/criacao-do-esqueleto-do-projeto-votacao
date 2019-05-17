@@ -1,5 +1,6 @@
 {% extends 'baseSite.html' %}
 {% block content %}
+    <h2>Detalhes da Votação</h2>
     <div class="exibirAluno">
         <div class="d-flex justify-content-center">
             <div class="aluno-pic-holder rounded shadow-sm"><img class="rounded" src="{{aluno.imagemAluno.url}}" alt=""></div>
@@ -12,8 +13,10 @@
             <p><strong>Ano: </strong>{{aluno.turmaAluno.anoTurma}} <strong>Turma: </strong>"{{aluno.turmaAluno.nomeTurma}}"</p>
             {% if template_name == 'emAndamento' %}
                 <p><strong>Situação:</strong> Em Andamento</p>
-                {% else %}
-                    <p><strong>Situação:</strong> Concluída</p>
+                {% elif template_name == 'pausada'%}
+                    <p><strong>Situação:</strong> Pausada</p>
+                    {% else %}
+                        <p><strong>Situação:</strong> Concluída</p>
             {% endif %}
         </div>
     </div>
@@ -30,14 +33,35 @@
                         <select class="d-none" name="votacao" required id="id_votacao">
                             <option value="{{votacao.id}}" selected></option>
                         </select>
-                                
                     <input type="submit" value='votar'>
                 </form> 
                 {% else %}
-                    <p>Você já votou!</p>
+                    <h4>Votado</h4>
             <br>
             {% endif %}
-
+        {% endif %}
+        {% if template_name == 'finalizada' %}
+            <div class="votos-cont">
+                <h4>Votos Contabilizados</h4>
+                <table class="table table-responsive-sm table-striped table-bordered table-sm" cellspacing="0"
+                width="50%" >
+                    <thead>
+                        <title>Votos</title>
+                        <tr>
+                            <th>Sim</th>
+                            <th>Não</th>
+                            <th>Abstenção</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>{{votoSim}}</th>
+                            <th>{{votoNao}}</th>
+                            <th>{{votoAbs}}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         {% endif %}
     </div>
 {% endblock %}

@@ -1,9 +1,8 @@
 {% extends 'baseSite.html' %}
 {% block content %}
 {% if votacoesPausadas %}
-    <p class='titulo'>Votações Pausadas</p>
+    <h2>Votações Pausadas</h2>
     <ul>
-    {% for Votacao in votacoesPausadas %}
         <table id="dtVerticalScrollExample" class="table table-responsive-sm table-striped table-bordered table-sm" cellspacing="0"
         width="90%">
             <thead>
@@ -11,17 +10,18 @@
                 <th> Data de Criação</th>
             </thead>
             <tbody>
-                <tr>
-                    <th>
-                        <li><a href="{% url 'exibirAluno' Votacao.aluno.cpfAluno %}">{{ Votacao.aluno.nomeAluno }}</a></li>
-                    </th>
-                    <th>
-                        <p>{{ Votacao.created_date }}</p>
-                    </th>
-                </tr>
+                {% for Votacao in votacoesPausadas %}
+                    <tr>
+                        <th>
+                            <li><a href="{% url 'exibirAluno' Votacao.aluno.cpfAluno %}">{{ Votacao.aluno.nomeAluno }}</a></li>
+                        </th>
+                        <th>
+                            <p>{{ Votacao.created_date }}</p>
+                        </th>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
-    {% endfor %}
     </ul>
     <a href="{% url 'emAndamento' %}"><i class="far fa-play-circle"></i> Visualizar votações em andamento</a><br>
     <a href="{% url 'concluidas' %}"><i class="far fa-check-square"></i> Visualizar votações concluidas</a>
